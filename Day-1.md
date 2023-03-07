@@ -20,13 +20,71 @@ source <(kubectl completion bash)
 echo "source <(kubectl completion bash)" >> ~/.bashrc
 ```
 
+## Aliases
+
+
 
 ```
-alias k=kubectl
-complete -o default -F __start_kubectl k
+alias k="kubectl"
+alias kn="kubectl get nodes -o wide"
+alias kp="kubectl get pods -o wide"
+alias kd="kubectl get deployment -o wide"
+alias ks="kubectl get svc -o wide"
+
+Describe K8S resources
+
+alias kdp="kubectl describe pod"
+alias kdd="kubectl describe deployment"
+alias kds="kubectl describe service"
+alias kdn="kubectl describe node"
 ```
 
 
+```
+export do="--dry-run=client -oyaml"
+```
+
+```
+k run simple-pod nginx --image=nginx $do  
+k run simple-pod nginx --image=busybox --command sleep 3600 $do
+```
+
+## Short form of commands
+
+
+|Long  | Short |
+| ------------- | ------------- |
+|componentstatuses|cs|
+|configmaps|cm
+|endpoints|ep|
+|events|ev
+|limitranges|limits|
+|namespaces|ns|
+|nodes|no|
+|persistentvolumeclaims|pvc|
+|persistentvolumes|pv|
+|pods|po|
+|replicationcontrollers|rc|
+|resourcequotas|quota|
+|serviceaccounts|sa|
+|services|svc|
+|customresourcedefinitions|crd, crds|
+|daemonsets|ds|
+|deployments|deploy|
+|replicasets|rs|
+|statefulsets|sts|
+|horizontalpodautoscalers|hpa|
+|cronjobs|cj|
+|certificiaterequests|cr, crs|
+|certificates|cert, certs|
+|certificatesigningrequests|csr|
+|ingresses|ing|
+|networkpolicies|netpol|
+|podsecuritypolicies|psp|
+|replicasets|rs|
+|scheduledscalers|ss|
+|priorityclasses|pc|
+|storageclasses|sc|
 
 ## ref
 
